@@ -4,7 +4,7 @@ from app.tools.utils import tool
 
 @tool
 def read_file(file_path: str) -> str:
-    """ Read and return the contents of a file
+    """ Read and return the contents of a file with out backticks
     :param file_path: The path to the file to read
     """
     try:

@@ -3,10 +3,10 @@ import os
 import json
 import copy
 
-from typing import Optional
-
 from openai import OpenAI
 from app.tools.utils import TOOLS
+from app.tools import file_handler
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -49,7 +49,7 @@ def run_conversation(client: OpenAI, initial_prompt: str) -> None:
             tool_result = execute_tools(tool_call)
             conversation_log.append(tool_result)
 
-def execute_tools(tool_call: dict) -> Optional(dict):
+def execute_tools(tool_call) -> dict:
     """Execute a tool call and return the result of a message"""
 
     function_name = tool_call.function.name
